@@ -1,4 +1,4 @@
-# DỰ ÁN WEBSITE: TINHNHADAT.VN
+﻿# DỰ ÁN WEBSITE: tinhnhadat.com
 > **Bộ Công Cụ Tính Thuế & Phí Sang Tên Sổ Đỏ Nhà Đất Trực Tuyến**
 > Tối ưu hóa 100% SEO On-Page, Tải trang siêu tốc (0ms), Chuẩn duyệt Google AdSense.
 
@@ -35,7 +35,7 @@ Có 2 cách rất đơn giản:
    - Truy cập [vercel.com](https://vercel.com) và đăng ký tài khoản miễn phí.
    - Cài đặt công cụ Vercel CLI hoặc kéo thả toàn bộ thư mục `tinh-nhadat` lên Vercel. Bạn sẽ có ngay một tên miền miễn phí dạng `tinh-nhadat.vercel.app` với tốc độ tải trang cực nhanh toàn cầu.
 2. **Gắn tên miền riêng:**
-   - Bạn có thể mua một tên miền (VD: `tinhnhadat.vn` tại Tenten/Mắt Bão, hoặc `tinhthuenhadat.com` tại Namecheap/Porkbun chỉ khoảng 200.000đ/năm).
+   - Bạn có thể mua một tên miền (VD: `tinhnhadat.com` tại Tenten/Mắt Bão, hoặc `tinhthuenhadat.com` tại Namecheap/Porkbun chỉ khoảng 200.000đ/năm).
    - Trỏ DNS tên miền về Vercel hoặc Cloudflare là website sẽ chạy với tên miền chính thức.
 
 ---
@@ -58,3 +58,4 @@ Có 2 cách rất đơn giản:
 2. Truy cập [Google AdSense](https://www.google.com/adsense/) và bấm Đăng ký trang web.
 3. Do website đã có sẵn các bài viết pháp lý, FAQ, công cụ chuyên sâu và các trang chính sách bắt buộc (Privacy, Terms, About, Contact), tỷ lệ được duyệt ngay lần đầu tiên là trên 95%.
 4. Sau khi duyệt, thay thế các khung mẫu trong code bằng mã quảng cáo thật từ Google AdSense. Doanh thu sẽ tự động chuyển về tài khoản ngân hàng của bạn hàng tháng!
+
