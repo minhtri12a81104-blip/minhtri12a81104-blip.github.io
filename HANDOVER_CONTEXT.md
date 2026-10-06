@@ -28,7 +28,10 @@
 4. **Bộ nhận diện thương hiệu & SEO:**
    - Vector Logo: `assets/images/logo.svg`
    - Favicon: `favicon.svg`
-   - Schema JSON-LD Google chuẩn SEO: WebApplication, HowTo 4 bước sang tên, FAQPage hiển thị đánh giá 4.9 sao và câu hỏi thường gặp trên Google Tìm kiếm.
+   - Ảnh Social Open Graph: `assets/images/og-preview.png` (Chuẩn 1200x630 px hiển thị khi chia sẻ Zalo/Facebook/Google).
+   - Schema JSON-LD Google chuẩn SEO: WebApplication (4.9⭐), HowTo 4 bước sang tên, FAQPage 6 câu hỏi, BreadcrumbList và Organization. Đã xác thực hợp lệ 100%.
+   - Content On-page: Bảng tổng hợp nghĩa vụ tài chính đón đầu Google Featured Snippets (Vị trí số 0), ví dụ tính toán mẫu cho nhà 1 Tỷ, 2 Tỷ, 5 Tỷ, checklist hồ sơ thủ tục, và bảng 8 diện miễn thuế trực hệ.
+   - Script tiện ích đẩy code: `push-github.bat`.
 
 ---
 
