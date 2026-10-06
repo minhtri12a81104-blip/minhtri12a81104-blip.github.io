@@ -12,6 +12,7 @@
     <meta name="author" content="tinhnhadat.com">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://tinhnhadat.com/tang-cho-thua-ke.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -85,30 +86,38 @@
         </div>
     </div>
 
-    <!-- Header / Navbar -->
-    <header class="no-print bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-emerald-500 flex items-center justify-center text-white shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                    </svg>
+    <!-- Header / Navbar (Glassmorphism & FinTech Brand) -->
+    <header class="no-print glass-header border-b border-slate-200/80 sticky top-0 z-40 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-2.5 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3.5 group">
+                <div class="relative w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-600 via-blue-600 to-emerald-500 p-0.5 shadow-md shadow-sky-500/20 group-hover:shadow-sky-500/35 transition-all group-hover:scale-105 duration-200">
+                    <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 10.5L12 3l9 7.5M5 9v11a1 1 0 001 1h12a1 1 0 001-1V9" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9.5 14.5l2 2 3.5-3.5" class="text-emerald-400 stroke-emerald-400" />
+                        </svg>
+                    </div>
+                    <span class="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 border-2 border-white rounded-full"></span>
                 </div>
                 <div>
-                    <span class="text-xl font-bold tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">TinhNhaDat<span class="text-sky-600">.com</span></span>
-                    <span class="hidden sm:block text-[11px] text-slate-500 font-medium leading-none">Bảng tính thuế & chi phí pháp lý BĐS</span>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">TinhNhaDat</span>
+                        <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-gradient-to-r from-sky-500 to-emerald-500 text-white shadow-sm tracking-wider">.COM</span>
+                    </div>
+                    <span class="hidden sm:block text-[11px] text-slate-500 font-semibold tracking-tight">Tính Thuế & Phí Nhà Đất Chuẩn 2026</span>
                 </div>
             </a>
 
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center gap-1">
-                <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-sky-600 hover:bg-slate-50">Mua Bán & Sang Tên</a>
-                <a href="tang-cho-thua-ke.html" class="px-3 py-2 rounded-lg text-sm font-semibold text-sky-600 bg-sky-50">Tặng Cho & Thừa Kế</a>
-                <a href="index.html#can-cu-phap-ly" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-sky-600 hover:bg-slate-50">Căn Cứ Pháp Lý</a>
-                <a href="#faq" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-sky-600 hover:bg-slate-50">Hỏi Đáp FAQ</a>
+                <a href="index.html" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:text-sky-600 hover:bg-slate-50 transition-colors">Mua Bán & Sang Tên</a>
+                <a href="tang-cho-thua-ke.html" class="px-3.5 py-2 rounded-xl text-sm font-bold text-emerald-700 bg-emerald-50/80 border border-emerald-100 shadow-sm">Tặng Cho & Thừa Kế</a>
+                <a href="index.html#can-cu-phap-ly" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:text-sky-600 hover:bg-slate-50 transition-colors">Căn Cứ Pháp Lý</a>
+                <a href="index.html#quy-trinh-sang-ten" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:text-sky-600 hover:bg-slate-50 transition-colors">Quy Trình 4 Bước</a>
+                <a href="#faq" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:text-sky-600 hover:bg-slate-50 transition-colors">Hỏi Đáp FAQ</a>
             </nav>
 
-            <button onclick="window.print()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-slate-300 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 shadow-sm transition-colors">
+            <button onclick="window.print()" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 shadow-sm transition-all hover:shadow">
                 <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                 <span>In Phiếu Tính</span>
             </button>
@@ -116,7 +125,7 @@
     </header>
 
     <!-- Top AdSense Banner -->
-    <div class="ad-container max-w-5xl mx-auto px-4 mt-4 w-full">
+    <div class="ad-container max-w-5xl mx-auto px-4 mt-5 w-full">
         <div class="adsense-slot min-h-[90px] border-dashed border-2 border-slate-300 bg-slate-100/70">
             <span class="ad-badge">ADSENSE BANNER TOP</span>
             <div class="text-xs text-slate-400 font-medium">Vị trí hiển thị Quảng cáo AdSense Header (728x90)</div>
@@ -125,27 +134,36 @@
 
     <!-- Main Content -->
     <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
-        <div class="text-center max-w-3xl mx-auto mb-8">
-            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 mb-3">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                Kiểm tra diện miễn thuế theo huyết thống
-            </span>
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        <!-- Hero Section -->
+        <div class="text-center max-w-4xl mx-auto mb-9">
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/60 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Diện Miễn Thuế Trực Hệ 100%
+                </span>
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200/60 shadow-sm">
+                    ⭐ Đánh giá 4.9/5 (1.420+ người dùng)
+                </span>
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-sky-50 text-sky-700 border border-sky-200/60 shadow-sm">
+                    🛡️ Căn Cứ Luật Đất Đai 2026
+                </span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 Tính Thuế & Phí Tặng Cho / Thừa Kế Nhà Đất
             </h1>
-            <p class="mt-2 text-slate-600 text-sm sm:text-base">
+            <p class="mt-3 text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
                 Kiểm tra quyền được miễn trừ 100% thuế TNCN và lệ phí trước bạ khi bố mẹ cho con, vợ chồng tặng nhau hoặc thừa kế tài sản.
             </p>
         </div>
 
         <!-- Calculator Tabs -->
-        <div class="no-print calculator-tabs flex justify-center mb-6">
-            <div class="inline-flex p-1 bg-slate-200/80 rounded-xl max-w-md w-full shadow-inner">
-                <a href="index.html" class="flex-1 py-2.5 px-4 rounded-lg text-sm font-semibold text-slate-600 hover:text-slate-900 flex items-center justify-center gap-2 transition-colors">
+        <div class="no-print calculator-tabs flex justify-center mb-7">
+            <div class="inline-flex p-1.5 bg-slate-200/70 rounded-2xl max-w-md w-full shadow-inner border border-slate-200">
+                <a href="index.html" class="flex-1 py-2.5 px-4 rounded-xl text-sm font-semibold text-slate-600 hover:text-slate-900 flex items-center justify-center gap-2 transition-colors">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                     Mua Bán / Chuyển Nhượng
                 </a>
-                <button type="button" class="flex-1 py-2.5 px-4 rounded-lg text-sm font-bold text-sky-700 bg-white shadow-sm flex items-center justify-center gap-2">
+                <button type="button" class="flex-1 py-2.5 px-4 rounded-xl text-sm font-bold text-emerald-800 bg-white shadow-sm flex items-center justify-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
                     Tặng Cho / Thừa Kế
                 </button>
@@ -156,7 +174,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             <!-- Cột Trái Form -->
-            <div class="no-print lg:col-span-6 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7">
+            <div class="no-print lg:col-span-6 card-premium rounded-3xl p-6 sm:p-8">
                 <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
                     <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm font-extrabold">1</span>
@@ -175,7 +193,7 @@
                             <input 
                                 type="text" 
                                 id="giaTriInput" 
-                                class="w-full pl-4 pr-16 py-3.5 rounded-xl border border-slate-300 text-slate-900 font-bold text-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                class="w-full pl-4 pr-16 py-3.5 rounded-xl border border-slate-300 text-slate-900 font-bold text-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all input-premium"
                                 value="1,500,000,000"
                             >
                             <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-400 font-bold text-sm">
@@ -183,17 +201,18 @@
                             </div>
                         </div>
 
-                        <div id="chuDocTien" class="mt-2 text-xs font-medium text-emerald-800 bg-emerald-50 p-2.5 rounded-lg border border-emerald-100">
-                            Một tỷ năm trăm triệu đồng
+                        <div id="chuDocTien" class="mt-2 text-xs font-semibold text-emerald-800 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-200/60 shadow-sm flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span>Một tỷ năm trăm triệu đồng</span>
                         </div>
 
                         <!-- Presets -->
-                        <div class="mt-3 flex flex-wrap gap-1.5 quick-presets">
-                            <button type="button" onclick="setPresetValue(500000000)" class="text-xs px-2.5 py-1 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 font-medium text-slate-600 transition-colors">500 Tr</button>
-                            <button type="button" onclick="setPresetValue(1000000000)" class="text-xs px-2.5 py-1 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 font-medium text-slate-600 transition-colors">1 Tỷ</button>
-                            <button type="button" onclick="setPresetValue(1500000000)" class="text-xs px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 font-bold transition-colors">1.5 Tỷ</button>
-                            <button type="button" onclick="setPresetValue(3000000000)" class="text-xs px-2.5 py-1 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 font-medium text-slate-600 transition-colors">3 Tỷ</button>
-                            <button type="button" onclick="setPresetValue(5000000000)" class="text-xs px-2.5 py-1 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 font-medium text-slate-600 transition-colors">5 Tỷ</button>
+                        <div class="mt-3 flex flex-wrap gap-1.5 quick-presets" id="presetChipsContainer">
+                            <button type="button" onclick="setPresetValue(500000000, this)" class="preset-chip">500 Tr</button>
+                            <button type="button" onclick="setPresetValue(1000000000, this)" class="preset-chip">1 Tỷ</button>
+                            <button type="button" onclick="setPresetValue(1500000000, this)" class="preset-chip active">1.5 Tỷ</button>
+                            <button type="button" onclick="setPresetValue(3000000000, this)" class="preset-chip">3 Tỷ</button>
+                            <button type="button" onclick="setPresetValue(5000000000, this)" class="preset-chip">5 Tỷ</button>
                         </div>
                     </div>
 
@@ -210,7 +229,7 @@
                                 ⚠️ Mối quan hệ khác (Họ hàng xa, cô dì chú bác hoặc người ngoài)
                             </option>
                         </select>
-                        <div id="badgeStatusMien" class="mt-2 text-xs p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 leading-relaxed">
+                        <div id="badgeStatusMien" class="mt-2 text-xs p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 leading-relaxed font-medium">
                             ✅ <strong>ĐƯỢC MIỄN 100%</strong> Thuế TNCN và MIỄN 100% Lệ phí trước bạ theo Luật Thuế TNCN & Nghị định 10/2022/NĐ-CP!
                         </div>
                     </div>
@@ -219,14 +238,14 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <div>
                             <label class="block text-xs font-semibold text-slate-700 mb-1">Khu vực địa phương:</label>
-                            <select id="khuVucSelect" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-700 text-xs focus:ring-2 focus:ring-emerald-500 outline-none bg-white">
+                            <select id="khuVucSelect" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-xs focus:ring-2 focus:ring-emerald-500 outline-none bg-white font-medium">
                                 <option value="hanoi_hcm" selected>Hà Nội / TP.HCM</option>
                                 <option value="tinh_khac">Tỉnh thành khác</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-xs font-semibold text-slate-700 mb-1">Hình thức cấp sổ:</label>
-                            <select id="loaiCapSoSelect" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-700 text-xs focus:ring-2 focus:ring-emerald-500 outline-none bg-white">
+                            <select id="loaiCapSoSelect" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-xs focus:ring-2 focus:ring-emerald-500 outline-none bg-white font-medium">
                                 <option value="cap_moi" selected>Cấp phôi sổ hồng mới (~100k)</option>
                                 <option value="trang_4">Xác nhận trang 4 sổ cũ (~25k)</option>
                             </select>
@@ -244,25 +263,25 @@
 
             <!-- Cột Phải Kết quả -->
             <div class="lg:col-span-6 space-y-6">
-                <div id="resultCard" class="print-container bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 relative overflow-hidden">
+                <div id="resultCard" class="print-container card-premium rounded-3xl p-6 sm:p-8 relative overflow-hidden">
                     <div class="flex items-center justify-between pb-4 border-b border-slate-100">
                         <div>
                             <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Kết Quả Tính Toán</span>
                             <h2 class="text-lg font-bold text-slate-900">Chi Phí Sang Tên Cho Tặng</h2>
                         </div>
-                        <span id="labelTrangThaiMien" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">
-                            Miễn Thuế 100%
+                        <span id="labelTrangThaiMien" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 shadow-sm border border-emerald-200/50">
+                            ✓ Miễn Thuế 100%
                         </span>
                     </div>
 
-                    <!-- Tổng con số -->
-                    <div class="my-5 p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-lg">
-                        <div class="text-xs font-medium text-slate-300">Tổng chi phí thủ tục thực tế phải nộp:</div>
-                        <div class="flex items-baseline gap-2 mt-1">
-                            <span id="resTongChiPhi" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-emerald-400">2,650,000</span>
-                            <span class="text-lg font-bold text-slate-300">VNĐ</span>
+                    <!-- Tổng con số nổi bật -->
+                    <div class="result-glow my-5 p-6 rounded-3xl text-white shadow-xl">
+                        <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide">Tổng chi phí thủ tục thực tế phải nộp:</div>
+                        <div class="flex items-baseline gap-2 mt-1.5">
+                            <span id="resTongChiPhi" class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-emerald-400">2,650,000</span>
+                            <span class="text-xl font-extrabold text-slate-300">VNĐ</span>
                         </div>
-                        <div id="resTongChiPhiChu" class="text-xs text-slate-300 mt-2 italic border-t border-slate-700/60 pt-2">
+                        <div id="resTongChiPhiChu" class="text-xs text-slate-300 mt-2.5 font-medium italic border-t border-slate-700/60 pt-2.5">
                             Hai triệu sáu trăm năm mươi nghìn đồng
                         </div>
                     </div>
@@ -274,7 +293,7 @@
                             <span>Số Tiền</span>
                         </div>
                         <div class="divide-y divide-slate-100 text-xs sm:text-sm">
-                            <div class="px-4 py-3 flex items-center justify-between">
+                            <div class="px-4 py-3 flex items-center justify-between hover:bg-slate-50">
                                 <div>
                                     <div class="font-bold text-slate-900">1. Thuế thu nhập cá nhân</div>
                                     <div class="text-[11px] text-slate-500" id="resGiaiThichTNCN">Được miễn (Quan hệ trực hệ)</div>
@@ -282,7 +301,7 @@
                                 <div class="font-bold text-emerald-600" id="resThueTNCN">0 đ (Miễn 100%)</div>
                             </div>
 
-                            <div class="px-4 py-3 flex items-center justify-between">
+                            <div class="px-4 py-3 flex items-center justify-between hover:bg-slate-50">
                                 <div>
                                     <div class="font-bold text-slate-900">2. Lệ phí trước bạ</div>
                                     <div class="text-[11px] text-slate-500" id="resGiaiThichTruocBa">Được miễn (Quan hệ trực hệ)</div>
@@ -290,7 +309,7 @@
                                 <div class="font-bold text-emerald-600" id="resTruocBa">0 đ (Miễn 100%)</div>
                             </div>
 
-                            <div class="px-4 py-3 flex items-center justify-between">
+                            <div class="px-4 py-3 flex items-center justify-between hover:bg-slate-50">
                                 <div>
                                     <div class="font-bold text-slate-900">3. Phí công chứng văn bản tặng cho</div>
                                     <div class="text-[11px] text-slate-500">Thông tư 257/2016/TT-BTC</div>
@@ -298,7 +317,7 @@
                                 <div class="font-bold text-slate-900" id="resPhiCongChung">1,600,000 đ</div>
                             </div>
 
-                            <div class="px-4 py-3 flex items-center justify-between">
+                            <div class="px-4 py-3 flex items-center justify-between hover:bg-slate-50">
                                 <div>
                                     <div class="font-bold text-slate-900">4. Lệ phí thẩm định & làm hồ sơ</div>
                                     <div class="text-[11px] text-slate-500">Biểu phí HĐND địa phương</div>
@@ -306,7 +325,7 @@
                                 <div class="font-bold text-slate-900" id="resPhiThamDinh">800,000 đ</div>
                             </div>
 
-                            <div class="px-4 py-3 flex items-center justify-between">
+                            <div class="px-4 py-3 flex items-center justify-between hover:bg-slate-50">
                                 <div>
                                     <div class="font-bold text-slate-900">5. Lệ phí cấp phôi sổ & trích lục</div>
                                     <div class="text-[11px] text-slate-500">Văn phòng ĐKĐĐ</div>
@@ -391,10 +410,63 @@
         </article>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer Chuẩn Google AdSense -->
     <footer class="no-print bg-white border-t border-slate-200 py-10 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500">
-            © 2026 tinhnhadat.com - Nền tảng tính toán pháp lý & thuế bất động sản miễn phí.
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2.5 mb-3">
+                        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-sky-600 to-emerald-500 p-0.5 shadow-sm">
+                            <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 10.5L12 3l9 7.5M5 9v11a1 1 0 001 1h12a1 1 0 001-1V9" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9.5 14.5l2 2 3.5-3.5" class="text-emerald-400 stroke-emerald-400" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-extrabold text-lg text-slate-900">TinhNhaDat</span>
+                            <span class="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-emerald-600 text-white tracking-wider">.COM</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed max-w-md">
+                        Nền tảng công cụ tính toán thuế, phí bất động sản và thủ tục pháp lý nhà đất trực tuyến miễn phí hàng đầu Việt Nam. Dữ liệu tính toán dựa trên các văn bản quy phạm pháp luật có hiệu lực hiện hành.
+                    </p>
+                    <div class="mt-4 text-xs text-slate-400">
+                        © 2026 tinhnhadat.com - All rights reserved.
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Công Cụ Tiện Ích</h4>
+                    <ul class="space-y-2 text-xs text-slate-600 font-medium">
+                        <li><a href="index.html" class="hover:text-emerald-600">Tính thuế mua bán nhà đất</a></li>
+                        <li><a href="tang-cho-thua-ke.html" class="hover:text-emerald-600">Tính thuế tặng cho & thừa kế</a></li>
+                        <li><a href="index.html#can-cu-phap-ly" class="hover:text-emerald-600">Biểu phí công chứng 2026</a></li>
+                        <li><a href="index.html#quy-trinh-sang-ten" class="hover:text-emerald-600">Thủ tục sang tên sổ đỏ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Thông Tin Pháp Lý</h4>
+                    <ul class="space-y-2 text-xs text-slate-600 font-medium">
+                        <li><a href="gioi-thieu.html" class="hover:text-emerald-600">Giới thiệu về chúng tôi</a></li>
+                        <li><a href="chinh-sach-bao-mat.html" class="hover:text-emerald-600">Chính sách bảo mật (Privacy)</a></li>
+                        <li><a href="dieu-khoan-su-dung.html" class="hover:text-emerald-600">Điều khoản sử dụng (Terms)</a></li>
+                        <li><a href="lien-he.html" class="hover:text-emerald-600">Liên hệ & Đóng góp ý kiến</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-400 gap-2">
+                <div>
+                    <strong>Miễn trừ trách nhiệm:</strong> Kết quả tính toán mang tính chất tham khảo dựa trên quy định chung. Một số địa phương có thể áp dụng thêm các mức phí dịch vụ đo đạc cụ thể.
+                </div>
+                <div class="flex gap-4">
+                    <span>Phiên bản 2.6</span>
+                    <span>Tốc độ: 100/100 Core Web Vitals</span>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -422,13 +494,17 @@
         giaTriInput.addEventListener('input', function() {
             let val = window.NhaDatCalc.parseCurrency(this.value);
             this.value = window.NhaDatCalc.formatCurrency(val);
-            chuDocTien.innerText = window.NhaDatCalc.docSoThanhChu(val);
+            chuDocTien.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>${window.NhaDatCalc.docSoThanhChu(val)}</span>`;
             tinhToanNgay();
         });
 
-        function setPresetValue(val) {
+        function setPresetValue(val, btn) {
             giaTriInput.value = window.NhaDatCalc.formatCurrency(val);
-            chuDocTien.innerText = window.NhaDatCalc.docSoThanhChu(val);
+            chuDocTien.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>${window.NhaDatCalc.docSoThanhChu(val)}</span>`;
+            if (btn) {
+                document.querySelectorAll('#presetChipsContainer .preset-chip').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+            }
             tinhToanNgay();
         }
 

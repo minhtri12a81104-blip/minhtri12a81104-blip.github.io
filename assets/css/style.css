@@ -1,45 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
 
 :root {
     --primary: #0284c7;
     --primary-dark: #0369a1;
     --accent: #10b981;
     --accent-dark: #059669;
+    --bg-mesh: radial-gradient(at 0% 0%, rgba(2, 132, 199, 0.08) 0px, transparent 50%), 
+               radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+               radial-gradient(at 50% 50%, rgba(99, 102, 241, 0.04) 0px, transparent 50%),
+               #f8fafc;
 }
 
 body {
-    font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #f8fafc;
-    color: #1e293b;
+    font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-mesh);
+    color: #0f172a;
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+/* Glassmorphism Header */
+.glass-header {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+    height: 6px;
 }
 ::-webkit-scrollbar-track {
     background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
     background: #cbd5e1;
-    border-radius: 4px;
+    border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
+}
+
+/* Modern Card Hover Effects */
+.card-premium {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.card-premium:hover {
+    box-shadow: 0 16px 32px -6px rgba(2, 132, 199, 0.07), 0 6px 12px -4px rgba(0, 0, 0, 0.03);
+    border-color: rgba(2, 132, 199, 0.35);
+}
+
+/* Result Box Glow */
+.result-glow {
+    position: relative;
+    background: linear-gradient(135deg, #090e1a 0%, #172033 100%);
+    box-shadow: 0 20px 30px -8px rgba(15, 23, 42, 0.25), 0 8px 12px -6px rgba(15, 23, 42, 0.15);
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.result-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.6), rgba(52, 211, 153, 0.6), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Quick preset buttons */
+.preset-chip {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #e2e8f0;
+    font-size: 11.5px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 5px 10px;
+    background: #f8fafc;
+    color: #475569;
+    cursor: pointer;
+}
+.preset-chip:hover {
+    border-color: #0284c7;
+    background: #f0f9ff;
+    color: #0369a1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(2, 132, 199, 0.12);
+}
+.preset-chip.active {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    color: #0369a1;
+    font-weight: 700;
+}
+.preset-chip:active {
+    transform: translateY(0);
+}
+
+/* Currency input focus glow */
+.input-premium:focus {
+    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.12);
+}
+
+/* Trust Pill Badges */
+.badge-trust {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* Breakdown bar */
+.breakdown-bar {
+    height: 8px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: #e2e8f0;
+    display: flex;
 }
 
 /* AdSense Slot Mockup Styles */
 .adsense-slot {
     position: relative;
     border: 2px dashed #cbd5e1;
-    background: #f8fafc;
-    border-radius: 12px;
+    background: rgba(248, 250, 252, 0.85);
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 18px;
     text-align: center;
     transition: all 0.2s ease;
 }
@@ -51,15 +155,27 @@ body {
 
 .adsense-slot .ad-badge {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 10px;
+    right: 10px;
     font-size: 10px;
     background: #e2e8f0;
     color: #64748b;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 700;
     letter-spacing: 0.5px;
+}
+
+/* Accordion Transition */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+}
+
+.accordion-content.active {
+    max-height: 1200px;
+    transition: max-height 0.45s ease-in-out;
 }
 
 /* Print Styles */
@@ -74,46 +190,16 @@ body {
     .adsense-slot, 
     .ad-container, 
     .action-buttons, 
-    .faq-section,
     .quick-presets,
     .calculator-tabs {
         display: none !important;
     }
     .print-container {
         box-shadow: none !important;
-        border: 1px solid #e2e8f0 !important;
+        border: 1px solid #cbd5e1 !important;
         width: 100% !important;
         max-width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
     }
-    .print-break-inside {
-        break-inside: avoid;
-    }
-}
-
-/* Tooltip & Badge animation */
-.pulse-tag {
-    animation: pulseSlow 2.5s infinite;
-}
-
-@keyframes pulseSlow {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.6;
-    }
-}
-
-/* Accordion transition */
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
-}
-
-.accordion-content.active {
-    max-height: 1000px;
-    transition: max-height 0.4s ease-in-out;
 }

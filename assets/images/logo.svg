@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none">
+  <defs>
+    <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="comBadge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="roofGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="checkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <filter id="logoShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#0284c7" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- ICON EMBLEM -->
+  <g transform="translate(4, 8)">
+    <!-- Squircle Background -->
+    <rect width="48" height="48" rx="14" fill="url(#logoBg)" filter="url(#logoShadow)"/>
+    <rect x="1" y="1" width="46" height="46" rx="13" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+
+    <!-- Roof -->
+    <path d="M11 25L24 13L37 25" stroke="url(#roofGrad)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Chimney -->
+    <path d="M30 18V13H33V20.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+
+    <!-- House Body -->
+    <path d="M15 22.5V35C15 35.8 15.7 36.5 16.5 36.5H31.5C32.3 36.5 33 35.8 33 35V22.5" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+
+    <!-- Verified Badge with Check -->
+    <circle cx="24" cy="29.5" r="5.5" fill="#ffffff"/>
+    <circle cx="24" cy="29.5" r="4.3" fill="url(#checkGrad)"/>
+    <path d="M21.8 29.5L23.4 31.1L26.4 27.9" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Sparkle Dot -->
+    <circle cx="36" cy="12" r="2" fill="#38bdf8"/>
+  </g>
+
+  <!-- LOGO TEXT BRANDING -->
+  <g transform="translate(64, 14)">
+    <!-- Main Name "TinhNhaDat" -->
+    <text x="0" y="24" font-family="'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif" font-weight="800" font-size="22" letter-spacing="-0.5" fill="#0f172a">
+      TinhNhaDat
+    </text>
+
+    <!-- ".COM" Badge Pill -->
+    <g transform="translate(133, 7)">
+      <rect width="42" height="20" rx="6" fill="url(#comBadge)"/>
+      <text x="21" y="14" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="11" letter-spacing="0.5" fill="#ffffff" text-anchor="middle">
+        .COM
+      </text>
+    </g>
+
+    <!-- Subtitle / Tagline -->
+    <text x="0" y="38" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="600" font-size="9.5" letter-spacing="0.3" fill="#64748b">
+      CÔNG CỤ TÍNH THUẾ &amp; PHÍ SỔ ĐỎ CHUẨN 2026
+    </text>
+  </g>
+</svg>
