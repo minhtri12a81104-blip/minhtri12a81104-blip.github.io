@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ & Hợp Tác - TinhNhaDat.vn</title>
+    <meta name="robots" content="index, follow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 flex flex-col">
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 font-bold text-lg text-slate-900">
+                <span class="text-sky-600">TinhNhaDat.vn</span>
+            </a>
+            <a href="index.html" class="text-xs font-semibold text-sky-600 hover:underline">← Về trang chủ công cụ</a>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-4xl mx-auto px-4 py-10 w-full">
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 shadow-sm space-y-6 text-sm leading-relaxed text-slate-700">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Liên Hệ & Hợp Tác</h1>
+
+            <p class="text-sm text-slate-600">
+                Nếu bạn có bất kỳ câu hỏi nào về cách tính thuế, muốn đóng góp ý kiến để hoàn thiện công cụ hoặc có nhu cầu hợp tác quảng cáo, truyền thông dịch vụ bất động sản, vui lòng liên hệ với chúng tôi:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-6">
+                <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        Thư điện tử (Email)
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-1">Bộ phận Hỗ trợ & Kỹ thuật:</p>
+                    <p class="text-sm font-bold text-sky-700">hotro@tinhnhadat.vn</p>
+                    <p class="text-xs text-slate-600 mt-2 mb-1">Hợp tác Quảng cáo:</p>
+                    <p class="text-sm font-bold text-sky-700">ads@tinhnhadat.vn</p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Địa chỉ & Thời gian làm việc
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-1">Văn phòng vận hành:</p>
+                    <p class="text-xs text-slate-800 font-medium">Hà Nội & TP. Hồ Chí Minh, Việt Nam</p>
+                    <p class="text-xs text-slate-600 mt-2 mb-1">Thời gian phản hồi:</p>
+                    <p class="text-xs text-slate-800 font-medium">Trong vòng 24 giờ làm việc</p>
+                </div>
+            </div>
+
+            <!-- Form liên hệ nhanh -->
+            <div class="pt-4 border-t border-slate-100">
+                <h2 class="text-base font-bold text-slate-900 mb-3">Gửi tin nhắn trực tiếp</h2>
+                <form onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đóng góp ý kiến! Chúng tôi sẽ phản hồi sớm nhất.');" class="space-y-4 max-w-xl">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Họ và tên:</label>
+                        <input type="text" required placeholder="Nguyễn Văn A" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:border-sky-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Email của bạn:</label>
+                        <input type="email" required placeholder="email@gmail.com" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:border-sky-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Nội dung tin nhắn:</label>
+                        <textarea rows="4" required placeholder="Nhập câu hỏi hoặc phản hồi của bạn..." class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:border-sky-500"></textarea>
+                    </div>
+                    <button type="submit" class="py-2.5 px-6 rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs transition-colors">
+                        Gửi Phản Hồi
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+        © 2026 TinhNhaDat.vn - All rights reserved.
+    </footer>
+</body>
+</html>
