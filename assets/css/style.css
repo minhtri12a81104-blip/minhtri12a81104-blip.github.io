@@ -170,3 +170,39 @@ body {
         margin: 0 !important;
     }
 }
+
+/* Tối Ưu Hóa Trải Nghiệm Người Dùng Di Động (Mobile UX 2026) */
+@media (max-width: 640px) {
+    /* Chống hiện tượng iOS Safari tự động phóng to màn hình khi chạm vào ô nhập */
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+
+    /* Đệm khoảng trống chân trang để không bị thanh kết quả cố định che mất nội dung */
+    body {
+        padding-bottom: 76px !important;
+    }
+
+    /* Vùng chạm chuẩn ngón cái (Ergonomic Thumb Zone) cho chip chọn nhanh */
+    .preset-chip {
+        min-height: 40px;
+        padding: 8px 10px;
+        font-size: 13px;
+        flex: 1 1 calc(33.333% - 6px);
+        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+    }
+
+    /* Bỏ highlight xám khó chịu khi nhấn trên trình duyệt mobile WebKit */
+    button, a, input, select {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Hỗ trợ thanh vuốt dưới đáy màn hình của iPhone (Safe Area Insets) */
+    .mobile-sticky-bar {
+        padding-bottom: calc(0.65rem + env(safe-area-inset-bottom, 0px));
+    }
+}
