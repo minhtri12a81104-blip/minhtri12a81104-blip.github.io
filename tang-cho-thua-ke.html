@@ -72,17 +72,18 @@
 </head>
 <body class="bg-slate-50 min-h-screen text-slate-800 flex flex-col">
 
-    <!-- Top Notice -->
+    <!-- Top Announcement Bar -->
     <div class="no-print bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
         <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
             <div class="flex items-center gap-2">
                 <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span>Tra cứu trường hợp <strong>MIỄN THUẾ 100%</strong> khi Tặng cho / Thừa kế nhà đất</span>
             </div>
-            <label class="flex items-center gap-2 cursor-pointer text-slate-300 hover:text-white select-none">
-                <input type="checkbox" id="toggleAdSensePreview" checked class="w-3.5 h-3.5 rounded text-sky-600 focus:ring-sky-500">
-                <span>Xem khung hiển thị Quảng cáo AdSense</span>
-            </label>
+            <div class="flex items-center gap-3 text-[11px] text-slate-400">
+                <span class="inline-flex items-center gap-1 font-medium">🛡️ Miễn phí 100%</span>
+                <span class="text-slate-600">•</span>
+                <span class="inline-flex items-center gap-1 font-medium">⚡ Chuẩn xác pháp lý</span>
+            </div>
         </div>
     </div>
 
@@ -123,14 +124,6 @@
             </button>
         </div>
     </header>
-
-    <!-- Top AdSense Banner -->
-    <div class="ad-container max-w-5xl mx-auto px-4 mt-5 w-full">
-        <div class="adsense-slot min-h-[90px] border-dashed border-2 border-slate-300 bg-slate-100/70">
-            <span class="ad-badge">ADSENSE BANNER TOP</span>
-            <div class="text-xs text-slate-400 font-medium">Vị trí hiển thị Quảng cáo AdSense Header (728x90)</div>
-        </div>
-    </div>
 
     <!-- Main Content -->
     <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
@@ -375,15 +368,6 @@
                     </div>
                 </div>
 
-                <!-- Ad Slot (Monetag / Adsterra 300x250) -->
-                <div class="ad-container" id="ad-slot-tangcho-sidebar">
-                    <!-- CHÈN MÃ QUẢNG CÁO BANNER 300x250 CỦA MONETAG HOẶC ADSTERRA TẠI ĐÂY -->
-                    <div class="adsense-slot min-h-[140px] border-dashed border-2 border-slate-300 bg-slate-100/70">
-                        <span class="ad-badge">BANNER 300x250</span>
-                        <div class="text-xs text-slate-500 font-bold">Vị trí Banner Quảng Cáo (300x250)</div>
-                        <div class="text-[11px] text-slate-400 mt-1">Nơi đặt mã Banner hoặc In-Page Push của Monetag / Adsterra</div>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -478,7 +462,6 @@
         const badgeStatusMien = document.getElementById('badgeStatusMien');
         const khuVucSelect = document.getElementById('khuVucSelect');
         const loaiCapSoSelect = document.getElementById('loaiCapSoSelect');
-        const toggleAdSensePreview = document.getElementById('toggleAdSensePreview');
 
         const resTongChiPhi = document.getElementById('resTongChiPhi');
         const resTongChiPhiChu = document.getElementById('resTongChiPhiChu');
@@ -506,13 +489,6 @@
                 btn.classList.add('active');
             }
             tinhToanNgay();
-        }
-
-        if (toggleAdSensePreview) {
-            toggleAdSensePreview.addEventListener('change', function() {
-                const slots = document.querySelectorAll('.ad-container');
-                slots.forEach(s => s.style.display = this.checked ? 'block' : 'none');
-            });
         }
 
         selectQuanHe.addEventListener('change', function() {
