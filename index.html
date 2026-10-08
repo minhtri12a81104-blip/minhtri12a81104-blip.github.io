@@ -184,8 +184,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css?v=20261008d">
-    <link rel="stylesheet" href="assets/css/tailwind.css?v=20261008d">
+    <link rel="stylesheet" href="assets/css/style.css?v=20261008e">
+    <link rel="stylesheet" href="assets/css/tailwind.css?v=20261008e">
 </head>
 <body class="bg-slate-50 min-h-screen text-slate-800 flex flex-col">
 
@@ -345,6 +345,46 @@
                         </div>
                     </div>
 
+                    <!-- Tính theo bảng giá đất UBND -->
+                    <details id="bangGiaBox" class="mb-5 rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 group">
+                        <summary class="cursor-pointer list-none flex items-start justify-between gap-2">
+                            <span>
+                                <span class="block text-sm font-semibold text-slate-800">Tính theo bảng giá đất UBND</span>
+                                <span class="block text-[11px] text-slate-500 mt-0.5">Nên dùng khi giá trên hợp đồng thấp hơn bảng giá nhà nước</span>
+                            </span>
+                            <span class="text-slate-400 mt-0.5 group-open:rotate-180 transition-transform">▾</span>
+                        </summary>
+                        <div class="mt-3 space-y-3">
+                            <p class="text-[11px] text-slate-500 leading-relaxed">Nếu giá hợp đồng thấp hơn giá tính theo bảng giá đất (× hệ số điều chỉnh) và giá nhà do UBND tỉnh quy định, thuế TNCN, lệ phí trước bạ và phí công chứng được tính theo giá nhà nước (Điều 57 Nghị định 253/2026/NĐ-CP, Nghị định 10/2022/NĐ-CP sửa đổi bởi Nghị định 175/2025/NĐ-CP, Thông tư 257/2016/TT-BTC).</p>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <label class="block">
+                                    <span class="block text-xs font-semibold text-slate-700 mb-1">Diện tích đất (m²)</span>
+                                    <input type="text" inputmode="decimal" autocomplete="off" id="dienTichInput" placeholder="VD: 80" 
+                                    class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-slate-900 font-semibold text-base focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none bg-white">
+                                </label>
+                                <label class="block">
+                                    <span class="block text-xs font-semibold text-slate-700 mb-1">Đơn giá bảng giá (đ/m²)</span>
+                                    <input type="text" inputmode="numeric" autocomplete="off" id="donGiaInput" placeholder="VD: 45.000.000" pattern="[0-9,.]*"
+                                    class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-slate-900 font-semibold text-base focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none bg-white">
+                                </label>
+                                <label class="block">
+                                    <span class="block text-xs font-semibold text-slate-700 mb-1">Hệ số điều chỉnh</span>
+                                    <input type="text" inputmode="decimal" autocomplete="off" id="heSoInput" placeholder="1" value="1"
+                                    class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-slate-900 font-semibold text-base focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none bg-white">
+                                </label>
+                                <label class="block">
+                                    <span class="block text-xs font-semibold text-slate-700 mb-1">Giá nhà theo UBND (đ)</span>
+                                    <input type="text" inputmode="numeric" autocomplete="off" id="giaNhaInput" placeholder="Không bắt buộc" pattern="[0-9,.]*"
+                                    class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-slate-900 font-semibold text-base focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none bg-white">
+                                </label>
+                            </div>
+                            <div class="text-xs text-slate-700 bg-white border border-slate-200 rounded-xl p-2.5">
+                                Giá theo bảng giá nhà nước: <strong id="giaNhaNuocText" class="text-slate-900">0 đ</strong>
+                            </div>
+                            <p class="text-[11px] text-slate-500">Tra đơn giá trong bảng giá đất của UBND tỉnh, thành phố nơi có đất (theo tên đường, vị trí thửa đất).</p>
+                        </div>
+                    </details>
+
                     <!-- Khu vực giao dịch -->
                     <div class="mb-4">
                         <label class="block text-sm font-semibold text-slate-800 mb-1.5">Khu vực địa phương:</label>
@@ -374,6 +414,17 @@
                                 </div>
                             </label>
                         </div>
+                    </div>
+
+                    <!-- Bên nào chịu thuế, phí -->
+                    <div class="mb-4">
+                        <label for="benChiuSelect" class="block text-sm font-semibold text-slate-800 mb-1.5">Bên nào chịu thuế, phí:</label>
+                        <select id="benChiuSelect" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-base focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none bg-white font-medium">
+                            <option value="theo_luat" selected>Theo luật (công chứng chia đôi)</option>
+                            <option value="ben_mua">Bên mua chịu toàn bộ (bên bán nhận đủ tiền)</option>
+                            <option value="ben_ban">Bên bán chịu toàn bộ (bao sang tên)</option>
+                        </select>
+                        <p class="text-[11px] text-slate-400 mt-1">Theo luật: bên bán nộp thuế TNCN, bên mua nộp lệ phí trước bạ và phí đăng bộ.</p>
                     </div>
 
                     <!-- Các tùy chọn miễn trừ & dịch vụ -->
@@ -433,16 +484,29 @@
                     <!-- Phân chia theo thỏa thuận ai nộp -->
                     <div class="grid grid-cols-2 gap-3 mb-6">
                         <div class="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200/70">
-                            <div class="text-[11px] font-bold text-amber-800 uppercase tracking-wide">Bên Bán Nộp (Theo Luật)</div>
+                            <div class="text-[11px] font-bold text-amber-800 uppercase tracking-wide">Bên Bán Chịu</div>
                             <div class="text-lg font-extrabold text-amber-900 mt-0.5" id="resBenBanNop">40.000.000 đ</div>
-                            <div class="text-[10px] text-amber-700 mt-0.5">Thuế Thu nhập cá nhân (2%)</div>
+                            <div class="text-[10px] text-amber-700 mt-0.5" id="resGhiChuBan">Thuế TNCN 2% + ½ phí công chứng</div>
                         </div>
                         <div class="p-3.5 rounded-xl bg-sky-50/80 border border-sky-200/70">
-                            <div class="text-[11px] font-bold text-sky-800 uppercase tracking-wide">Bên Mua Nộp (Theo Luật)</div>
+                            <div class="text-[11px] font-bold text-sky-800 uppercase tracking-wide">Bên Mua Chịu</div>
                             <div class="text-lg font-extrabold text-sky-900 mt-0.5" id="resBenMuaNop">10.250.000 đ</div>
-                            <div class="text-[10px] text-sky-700 mt-0.5">Lệ phí trước bạ (0.5%) + Đăng bộ</div>
+                            <div class="text-[10px] text-sky-700 mt-0.5" id="resGhiChuMua">Trước bạ 0,5% + đăng bộ + ½ phí công chứng</div>
                         </div>
                     </div>
+
+                    <!-- Số tiền thực nhận / thực chi -->
+                    <div class="grid grid-cols-2 gap-3 -mt-3 mb-4 text-xs">
+                        <div class="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white">
+                            <div class="text-slate-500">Bên bán thực nhận</div>
+                            <div class="font-bold text-slate-900 mt-0.5" id="resBanThucNhan">0 đ</div>
+                        </div>
+                        <div class="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white">
+                            <div class="text-slate-500">Bên mua tổng chi</div>
+                            <div class="font-bold text-slate-900 mt-0.5" id="resMuaTongChi">0 đ</div>
+                        </div>
+                    </div>
+                    <div id="resCoSoGia" class="hidden mb-6 text-xs rounded-xl bg-amber-50 border border-amber-200 text-amber-900 p-3 leading-relaxed"></div>
 
                     <!-- Bảng chi tiết từng khoản mục -->
                     <div class="border border-slate-200 rounded-xl overflow-hidden mb-6">
@@ -1171,8 +1235,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="assets/js/calculator.js?v=20261008d"></script>
-    <script src="assets/js/share.js?v=20261008d"></script>
+    <script src="assets/js/calculator.js?v=20261008e"></script>
+    <script src="assets/js/share.js?v=20261008e"></script>
     <script>
         // DOM Elements
         const giaTriInput = document.getElementById('giaTriInput');
@@ -1237,9 +1301,21 @@
             const loaiCapSo = document.querySelector('input[name="loaiCapSo"]:checked').value;
             const khuVuc = khuVucSelect.value;
             const dichVuCongChung = checkDichVuCongChung.checked;
+            const C = window.NhaDatCalc;
+
+            // Giá theo bảng giá nhà nước = diện tích x đơn giá x hệ số + giá nhà
+            const dienTich = C.parseDecimal(document.getElementById('dienTichInput').value);
+            const donGia = C.parseCurrency(document.getElementById('donGiaInput').value);
+            const heSo = C.parseDecimal(document.getElementById('heSoInput').value) || 1;
+            const giaNha = C.parseCurrency(document.getElementById('giaNhaInput').value);
+            const giaNhaNuoc = Math.round(dienTich * donGia * heSo) + giaNha;
+            document.getElementById('giaNhaNuocText').innerText = C.formatCurrency(giaNhaNuoc) + ' đ';
+            const benChiuPhi = document.getElementById('benChiuSelect').value;
 
             const res = window.NhaDatCalc.tinhChiPhiMuaBan({
                 giaTri,
+                giaNhaNuoc,
+                benChiuPhi,
                 isMienThueTNCN: isMienTNCN,
                 loaiCapSo,
                 khuVuc,
@@ -1258,6 +1334,22 @@
 
             resBenBanNop.innerText = window.NhaDatCalc.formatCurrency(res.chiPhiBenBan) + ' đ';
             resBenMuaNop.innerText = window.NhaDatCalc.formatCurrency(res.chiPhiBenMua) + ' đ';
+            const ghiChu = {
+                theo_luat: ['Thuế TNCN 2% + ½ phí công chứng', 'Trước bạ 0,5% + đăng bộ + ½ phí công chứng'],
+                ben_mua: ['Không phải trả khoản nào', 'Toàn bộ thuế và phí'],
+                ben_ban: ['Toàn bộ thuế và phí', 'Không phải trả khoản nào'],
+            }[res.benChiuPhi];
+            document.getElementById('resGhiChuBan').innerText = ghiChu[0];
+            document.getElementById('resGhiChuMua').innerText = ghiChu[1];
+            document.getElementById('resBanThucNhan').innerText = C.formatCurrency(res.benBanThucNhan) + ' đ';
+            document.getElementById('resMuaTongChi').innerText = C.formatCurrency(res.benMuaTongChi) + ' đ';
+            const coSo = document.getElementById('resCoSoGia');
+            if (res.theoGiaNhaNuoc) {
+                coSo.innerText = 'Giá hợp đồng thấp hơn bảng giá nhà nước, nên thuế TNCN, lệ phí trước bạ và phí công chứng được tính trên ' + C.formatCurrency(res.giaTinhThue) + ' đ.';
+                coSo.classList.remove('hidden');
+            } else {
+                coSo.classList.add('hidden');
+            }
 
             resThueTNCN.innerText = window.NhaDatCalc.formatCurrency(res.thueTNCN) + ' đ';
             if (isMienTNCN) {
@@ -1282,6 +1374,9 @@
             checkDichVuCongChung.checked = true;
             document.querySelector('input[name="loaiCapSo"][value="cap_moi"]').checked = true;
             khuVucSelect.value = 'hanoi_hcm';
+            document.getElementById('benChiuSelect').value = 'theo_luat';
+            ['dienTichInput', 'donGiaInput', 'giaNhaInput'].forEach(id => { document.getElementById(id).value = ''; });
+            document.getElementById('heSoInput').value = '1';
             document.querySelectorAll('#presetChipsContainer .preset-chip').forEach(c => c.classList.remove('active'));
             const defaultChip = document.querySelector('#presetChipsContainer .preset-chip:nth-child(3)');
             if (defaultChip) defaultChip.classList.add('active');
@@ -1312,8 +1407,10 @@
 
             const text = `Dự toán thuế & phí sang tên nhà đất\n` +
                          `Giá trị chuyển nhượng: ${giaTri} đ\n` +
-                         `Bên bán nộp (thuế TNCN 2%): ${ban}\n` +
-                         `Bên mua nộp (trước bạ 0,5% + phí): ${mua}\n` +
+                         (document.getElementById('resCoSoGia').classList.contains('hidden') ? '' : document.getElementById('resCoSoGia').innerText + '\n') +
+                         `Bên bán chịu: ${ban}\n` +
+                         `Bên mua chịu: ${mua}\n` +
+                         `Bên bán thực nhận: ${document.getElementById('resBanThucNhan').innerText}\n` +
                          `Tổng chi phí dự kiến: ${tong} đ (${chu})\n\n` +
                          `Chi tiết: https://tinhnhadat.com`;
 
@@ -1347,6 +1444,13 @@
 
         // Event listeners for select and checkbox
         khuVucSelect.addEventListener('change', tinhToanNgay);
+        document.getElementById('benChiuSelect').addEventListener('change', tinhToanNgay);
+        ['dienTichInput', 'heSoInput'].forEach(id => document.getElementById(id).addEventListener('input', tinhToanNgay));
+        ['donGiaInput', 'giaNhaInput'].forEach(id => document.getElementById(id).addEventListener('input', function () {
+            const v = window.NhaDatCalc.parseCurrency(this.value);
+            this.value = v ? window.NhaDatCalc.formatCurrency(v) : '';
+            tinhToanNgay();
+        }));
         checkMienTNCN.addEventListener('change', tinhToanNgay);
         checkDichVuCongChung.addEventListener('change', tinhToanNgay);
         document.querySelectorAll('input[name="loaiCapSo"]').forEach(r => r.addEventListener('change', tinhToanNgay));

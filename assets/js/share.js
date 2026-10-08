@@ -189,6 +189,8 @@
         if (quanHe) lines.push("Mối quan hệ: " + quanHe.options[quanHe.selectedIndex].text.trim());
         const khuVuc = document.getElementById("khuVucSelect");
         if (khuVuc) lines.push("Khu vực: " + khuVuc.options[khuVuc.selectedIndex].text.trim());
+        const benChiu = document.getElementById("benChiuSelect");
+        if (benChiu) lines.push("Bên chịu thuế, phí: " + benChiu.options[benChiu.selectedIndex].text.trim());
 
         const h = document.createElement("h1");
         h.style.cssText = "font-size:18pt;margin:0 0 4pt";

@@ -21,6 +21,13 @@ function parseCurrency(str) {
     return parseInt(cleanStr, 10) || 0;
 }
 
+// Hàm phân tích số thập phân kiểu Việt Nam ("85,5" hoặc "85.5") - dùng cho diện tích, hệ số
+function parseDecimal(str) {
+    if (!str) return 0;
+    const n = parseFloat(str.toString().trim().replace(/\s/g, '').replace(',', '.'));
+    return isNaN(n) || n < 0 ? 0 : n;
+}
+
 // Hàm đọc số tiền thành chữ tiếng Việt chuẩn xác
 function docSoThanhChu(so) {
     if (so === 0) return 'Không đồng';
@@ -108,10 +115,21 @@ function tinhPhiCongChung(giaTri) {
 
 /**
  * Tính toán chi phí chuyển nhượng mua bán
+ *
+ * giaNhaNuoc: giá theo bảng giá đất (x hệ số điều chỉnh) + giá nhà do UBND tỉnh quy định.
+ * Khi giá hợp đồng thấp hơn giá này, thuế TNCN (Điều 57 NĐ 253/2026/NĐ-CP), lệ phí trước bạ
+ * (NĐ 10/2022, sửa đổi bởi NĐ 175/2025) và phí công chứng (TT 257/2016) tính theo giá nhà nước.
+ *
+ * benChiuPhi: 'theo_luat' | 'ben_mua' | 'ben_ban'
+ *   - theo_luat: bên bán nộp thuế TNCN, bên mua nộp trước bạ + đăng bộ, phí công chứng chia đôi
+ *   - ben_mua: bên mua chịu toàn bộ (bên bán nhận đủ tiền)
+ *   - ben_ban: bên bán chịu toàn bộ (bao sang tên)
  */
 function tinhChiPhiMuaBan(params) {
     const {
         giaTri,
+        giaNhaNuoc = 0,
+        benChiuPhi = 'theo_luat',
         isMienThueTNCN = false,
         isMienTruocBa = false,
         loaiCapSo = 'cap_moi', // 'cap_moi' hoặc 'trang_4'
@@ -119,14 +137,18 @@ function tinhChiPhiMuaBan(params) {
         dichVuCongChung = true
     } = params;
 
-    // 1. Thuế thu nhập cá nhân (2%) - Bên bán
-    const thueTNCN = isMienThueTNCN ? 0 : Math.round(giaTri * 0.02);
+    // Giá dùng để tính thuế, phí: lấy giá cao hơn giữa hợp đồng và bảng giá nhà nước
+    const giaTinhThue = Math.max(giaTri, giaNhaNuoc);
+    const theoGiaNhaNuoc = giaNhaNuoc > giaTri;
 
-    // 2. Lệ phí trước bạ (0.5%) - Bên mua
-    const lePhiTruocBa = isMienTruocBa ? 0 : Math.round(giaTri * 0.005);
+    // 1. Thuế thu nhập cá nhân (2%)
+    const thueTNCN = isMienThueTNCN ? 0 : Math.round(giaTinhThue * 0.02);
+
+    // 2. Lệ phí trước bạ (0.5%)
+    const lePhiTruocBa = isMienTruocBa ? 0 : Math.round(giaTinhThue * 0.005);
 
     // 3. Phí công chứng hợp đồng theo TT 257/2016
-    const phiCongChungGoc = tinhPhiCongChung(giaTri);
+    const phiCongChungGoc = tinhPhiCongChung(giaTinhThue);
     const phiThuLaoCongChung = dichVuCongChung ? 300000 : 0; // Thù lao soạn thảo, in ấn, photo
     const tongPhiCongChung = phiCongChungGoc + phiThuLaoCongChung;
 
@@ -134,8 +156,8 @@ function tinhChiPhiMuaBan(params) {
     // Thường dao động từ 500.000đ đến 2.000.000đ tùy giá trị và tỉnh thành
     let lePhiThamDinh = 0;
     if (khuVuc === 'hanoi_hcm') {
-        if (giaTri <= 1000000000) lePhiThamDinh = 500000;
-        else if (giaTri <= 5000000000) lePhiThamDinh = 1000000;
+        if (giaTinhThue <= 1000000000) lePhiThamDinh = 500000;
+        else if (giaTinhThue <= 5000000000) lePhiThamDinh = 1000000;
         else lePhiThamDinh = 1500000;
     } else {
         lePhiThamDinh = 500000;
@@ -147,15 +169,28 @@ function tinhChiPhiMuaBan(params) {
     // 6. Phí trích lục bản đồ / địa chính (ước tính)
     const phiTrichLuc = 150000;
 
-    // Tổng hợp chi phí theo luật quy định ai nộp:
-    const chiPhiBenBan = thueTNCN; // Theo luật: Bên bán nộp Thuế TNCN
-    const chiPhiBenMua = lePhiTruocBa + lePhiThamDinh + lePhiCapSo + phiTrichLuc; // Bên mua nộp trước bạ và phí đăng bộ
-    const chiPhiHaiBenThoaThuan = tongPhiCongChung; // Phí công chứng thường chia đôi hoặc do thỏa thuận
+    const phiDangBo = lePhiThamDinh + lePhiCapSo + phiTrichLuc;
+    const tongTatCaChiPhi = thueTNCN + lePhiTruocBa + tongPhiCongChung + phiDangBo;
 
-    const tongTatCaChiPhi = chiPhiBenBan + chiPhiBenMua + chiPhiHaiBenThoaThuan;
+    // Phân chia ai chịu
+    let chiPhiBenBan, chiPhiBenMua;
+    if (benChiuPhi === 'ben_mua') {
+        chiPhiBenBan = 0;
+        chiPhiBenMua = tongTatCaChiPhi;
+    } else if (benChiuPhi === 'ben_ban') {
+        chiPhiBenBan = tongTatCaChiPhi;
+        chiPhiBenMua = 0;
+    } else {
+        chiPhiBenBan = thueTNCN + Math.floor(tongPhiCongChung / 2);
+        chiPhiBenMua = tongTatCaChiPhi - chiPhiBenBan;
+    }
 
     return {
         giaTri,
+        giaNhaNuoc,
+        giaTinhThue,
+        theoGiaNhaNuoc,
+        benChiuPhi,
         thueTNCN,
         isMienThueTNCN,
         lePhiTruocBa,
@@ -166,9 +201,11 @@ function tinhChiPhiMuaBan(params) {
         lePhiThamDinh,
         lePhiCapSo,
         phiTrichLuc,
+        phiDangBo,
         chiPhiBenBan,
         chiPhiBenMua,
-        chiPhiHaiBenThoaThuan,
+        benBanThucNhan: giaTri - chiPhiBenBan,
+        benMuaTongChi: giaTri + chiPhiBenMua,
         tongTatCaChiPhi
     };
 }
@@ -230,6 +267,7 @@ function tinhChiPhiTangCho(params) {
 window.NhaDatCalc = {
     formatCurrency,
     parseCurrency,
+    parseDecimal,
     docSoThanhChu,
     tinhPhiCongChung,
     tinhChiPhiMuaBan,

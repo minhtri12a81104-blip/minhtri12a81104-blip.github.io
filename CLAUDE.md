@@ -13,12 +13,12 @@ Web application for calculating real estate transfer taxes, registration fees, a
 - Frontend: Vanilla HTML5, Tailwind CSS v3 (prebuilt static file `assets/css/tailwind.css`, NOT the CDN), Custom CSS (`assets/css/style.css`, loaded BEFORE tailwind.css to match old CDN cascade), Plain JavaScript (ES6+).
 - Calculation Engine: `assets/js/calculator.js` exposing `window.NhaDatCalc`.
 - Assets: SVG vectors (`assets/images/logo.svg`, `favicon.svg`).
-- Cache busting: every local CSS/JS link carries `?v=YYYYMMDDx` (e.g. `?v=20261008d`) because `/assets/*` is cached 1h by `vercel.json`. Whenever a file in `assets/` changes, bump this version in ALL `.html` pages, otherwise returning visitors keep the stale file.
+- Cache busting: every local CSS/JS link carries `?v=YYYYMMDDx` (e.g. `?v=20261008e`) because `/assets/*` is cached 1h by `vercel.json`. Whenever a file in `assets/` changes, bump this version in ALL `.html` pages, otherwise returning visitors keep the stale file.
 - No build step for deploy (static files). After adding NEW Tailwind classes to HTML/JS, regenerate CSS and commit it: `npx tailwindcss@3 -i assets/css/tailwind.src.css -o assets/css/tailwind.css --minify` (config: `tailwind.config.js`).
 - Tax law basis (verified 10/2026): Luật Thuế TNCN 109/2025/QH15 (hiệu lực 01/7/2026) + NĐ 253/2026/NĐ-CP: chuyển nhượng 2%; thừa kế/quà tặng 10% phần vượt 20 triệu (trước đây 10 triệu). Lệ phí trước bạ 0,5% (NĐ 10/2022, sửa đổi NĐ 175/2025, 51/2025). Phí công chứng TT 257/2016 + TT 111/2017.
 
 ## Key Files & Pages
-- `index.html`: Main calculator for buying/selling real estate (Thuế TNCN 2%, Lệ phí trước bạ 0.5%, Phí công chứng bậc thang, Lệ phí cấp sổ).
+- `index.html`: Main calculator for buying/selling real estate (Thuế TNCN 2%, Lệ phí trước bạ 0.5%, Phí công chứng bậc thang, Lệ phí cấp sổ). Optional "Tính theo bảng giá đất UBND" panel (diện tích × đơn giá × hệ số + giá nhà): tax/fees use max(contract price, state price). "Bên nào chịu thuế, phí" select (`theo_luat` = công chứng chia đôi, `ben_mua`, `ben_ban`) drives `chiPhiBenBan/chiPhiBenMua`, `benBanThucNhan`, `benMuaTongChi` from `tinhChiPhiMuaBan`.
 - `tang-cho-thua-ke.html`: Calculator for gifting & inheritance (Tặng cho / thừa kế). Automatically evaluates 100% tax exemption for direct relatives.
 - `assets/js/calculator.js`: Tax & fee calculations, currency parsing/formatting, number-to-words converter in Vietnamese.
 - `assets/css/style.css`: Modern FinTech styling, custom scrollbars, print stylesheet, and Mobile UX touch optimization.
