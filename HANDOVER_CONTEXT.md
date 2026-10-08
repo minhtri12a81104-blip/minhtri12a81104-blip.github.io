@@ -8,7 +8,7 @@
 - **Website chính thức (Live):** [https://tinhnhadat.com](https://tinhnhadat.com/)
 - **GitHub Repository:** `https://github.com/minhtri12a81104-blip/minhtri12a81104-blip.github.io.git`
 - **Nhánh chính:** `main`
-- **Nền tảng lưu trữ:** GitHub Pages (kèm Custom Domain `tinhnhadat.com` và SSL Cloudflare/Fastly).
+- **Nền tảng lưu trữ:** Vercel (tự deploy khi push lên `main`, cấu hình `vercel.json`). DNS tại Spaceship: `@` A `216.198.79.1`, `www` CNAME về Vercel (chuyển hướng 308 về tên miền chính).
 
 ---
 
