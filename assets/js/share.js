@@ -127,63 +127,90 @@
         copy(text);
     }
 
-    // In riêng phiếu kết quả (không in cả trang), chữ đen trên nền trắng
-    function printReceipt() {
-        if (isInAppBrowser || typeof window.print !== 'function') {
-            const p = document.createElement('p');
-            p.style.cssText = 'margin:0;color:#475569';
-            p.textContent = 'Trình duyệt trong ứng dụng (Zalo, Facebook...) không hỗ trợ in. Bấm nút ⋯ ở góc màn hình, chọn "Mở bằng trình duyệt" (Chrome hoặc Safari) rồi bấm In lại để in hoặc lưu PDF. Bạn cũng có thể dùng nút "Sao chép kết quả" để gửi qua Zalo.';
-            openModal('Không thể in tại đây', p, []);
-            return;
-        }
+    // CSS in phiếu nằm ngay trong file này để luôn khớp với code (không phụ thuộc style.css đang được cache)
+    const PRINT_CSS = [
+        "#printArea{display:none}",
+        "@media print{",
+        "body.print-receipt>*:not(#printArea){display:none!important}",
+        "body.print-receipt #printArea{display:block!important}",
+        "#printArea,#printArea *{color:#000!important;-webkit-text-fill-color:#000!important;background:transparent!important;box-shadow:none!important;border-color:#cbd5e1!important}",
+        "#printArea .print-container{border:1px solid #cbd5e1!important;border-radius:8px;padding:12pt!important}",
+        "#printArea .hidden{display:none!important}",
+        "}",
+    ].join("");
+    const styleEl = document.createElement("style");
+    styleEl.id = "ndPrintStyle";
+    styleEl.textContent = PRINT_CSS;
+    document.head.appendChild(styleEl);
 
-        const card = document.getElementById('resultCard');
-        const old = document.getElementById('printArea');
-        if (old) old.remove();
+    function removeReceipt() {
+        document.body.classList.remove("print-receipt");
+        const area = document.getElementById("printArea");
+        if (area) area.remove();
+    }
 
-        const area = document.createElement('div');
-        area.id = 'printArea';
-        const now = new Date();
+    // Dựng phiếu kết quả để in: chỉ phần kết quả, chữ đen trên nền trắng
+    function buildReceipt() {
+        const card = document.getElementById("resultCard");
+        if (!card) return false;
+        removeReceipt();
+
+        const area = document.createElement("div");
+        area.id = "printArea";
         const lines = [];
-        const giaTri = document.getElementById('giaTriInput');
-        if (giaTri) lines.push('Giá trị tài sản: ' + giaTri.value + ' đ');
-        const quanHe = document.getElementById('selectQuanHe');
-        if (quanHe) lines.push('Mối quan hệ: ' + quanHe.options[quanHe.selectedIndex].text.trim());
-        const khuVuc = document.getElementById('khuVucSelect');
-        if (khuVuc) lines.push('Khu vực: ' + khuVuc.options[khuVuc.selectedIndex].text.trim());
+        const giaTri = document.getElementById("giaTriInput");
+        if (giaTri) lines.push("Giá trị tài sản: " + giaTri.value + " đ");
+        const quanHe = document.getElementById("selectQuanHe");
+        if (quanHe) lines.push("Mối quan hệ: " + quanHe.options[quanHe.selectedIndex].text.trim());
+        const khuVuc = document.getElementById("khuVucSelect");
+        if (khuVuc) lines.push("Khu vực: " + khuVuc.options[khuVuc.selectedIndex].text.trim());
 
-        const head = document.createElement('div');
-        head.innerHTML = '<h1 style="font-size:18pt;margin:0 0 4pt">Phiếu dự toán thuế &amp; phí sang tên nhà đất</h1>' +
-            '<p style="margin:0 0 10pt;font-size:10pt">tinhnhadat.com · Ngày in: ' + now.toLocaleDateString('vi-VN') + '</p>';
+        const h = document.createElement("h1");
+        h.style.cssText = "font-size:18pt;margin:0 0 4pt";
+        h.textContent = "Phiếu dự toán thuế & phí sang tên nhà đất";
+        area.appendChild(h);
+        const sub = document.createElement("p");
+        sub.style.cssText = "margin:0 0 10pt;font-size:10pt";
+        sub.textContent = "tinhnhadat.com · Ngày in: " + new Date().toLocaleDateString("vi-VN");
+        area.appendChild(sub);
         lines.forEach((l) => {
-            const p = document.createElement('p');
-            p.style.cssText = 'margin:0 0 3pt;font-size:11pt';
+            const p = document.createElement("p");
+            p.style.cssText = "margin:0 0 3pt;font-size:11pt";
             p.textContent = l;
-            head.appendChild(p);
+            area.appendChild(p);
         });
-        area.appendChild(head);
 
-        if (card) {
-            const clone = card.cloneNode(true);
-            clone.removeAttribute('id');
-            clone.querySelectorAll('[id]').forEach((el) => el.removeAttribute('id'));
-            clone.querySelectorAll('.no-print, button, #copyToast').forEach((el) => el.remove());
-            area.appendChild(clone);
-        }
+        const clone = card.cloneNode(true);
+        clone.querySelectorAll(".no-print, button, #copyToast").forEach((el) => el.remove());
+        clone.querySelectorAll("[id]").forEach((el) => el.removeAttribute("id"));
+        clone.removeAttribute("id");
+        area.appendChild(clone);
 
-        const foot = document.createElement('p');
-        foot.style.cssText = 'margin-top:12pt;font-size:9pt';
-        foot.textContent = 'Kết quả mang tính tham khảo. Số tiền thực tế do cơ quan thuế, văn phòng công chứng và văn phòng đăng ký đất đai xác định.';
+        const foot = document.createElement("p");
+        foot.style.cssText = "margin-top:12pt;font-size:9pt";
+        foot.textContent = "Kết quả mang tính tham khảo. Số tiền thực tế do cơ quan thuế, văn phòng công chứng và văn phòng đăng ký đất đai xác định.";
         area.appendChild(foot);
 
         document.body.appendChild(area);
-        document.body.classList.add('print-receipt');
-        const cleanup = () => {
-            document.body.classList.remove('print-receipt');
-            area.remove();
-            window.removeEventListener('afterprint', cleanup);
-        };
-        window.addEventListener('afterprint', cleanup);
+        document.body.classList.add("print-receipt");
+        return true;
+    }
+
+    // Cả khi người dùng bấm Ctrl+P hay In từ menu trình duyệt cũng chỉ in phiếu
+    window.addEventListener("beforeprint", () => {
+        if (!document.getElementById("printArea")) buildReceipt();
+    });
+    window.addEventListener("afterprint", removeReceipt);
+
+    function printReceipt() {
+        if (isInAppBrowser || typeof window.print !== "function") {
+            const p = document.createElement("p");
+            p.style.cssText = "margin:0;color:#475569";
+            p.textContent = "Trình duyệt trong ứng dụng (Zalo, Facebook...) không hỗ trợ in. Bấm nút ⋯ ở góc màn hình, chọn \"Mở bằng trình duyệt\" (Chrome hoặc Safari) rồi bấm In lại để in hoặc lưu PDF. Bạn cũng có thể dùng nút \"Sao chép kết quả\" để gửi qua Zalo.";
+            openModal("Không thể in tại đây", p, []);
+            return;
+        }
+        buildReceipt();
         window.print();
     }
 

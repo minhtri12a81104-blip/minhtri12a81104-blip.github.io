@@ -206,17 +206,3 @@ body {
     }
 }
 
-/* In riêng phiếu kết quả (assets/js/share.js) */
-#printArea { display: none; }
-@media print {
-    body.print-receipt > *:not(#printArea) { display: none !important; }
-    body.print-receipt #printArea { display: block !important; }
-    #printArea, #printArea * {
-        color: #000000 !important;
-        -webkit-text-fill-color: #000000 !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        border-color: #cbd5e1 !important;
-    }
-    #printArea .print-container { border: 1px solid #cbd5e1 !important; border-radius: 8px; padding: 12pt !important; }
-}
