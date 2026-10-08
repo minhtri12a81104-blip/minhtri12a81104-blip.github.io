@@ -131,10 +131,16 @@
     const PRINT_CSS = [
         "#printArea{display:none}",
         "@media print{",
-        "body.print-receipt>*:not(#printArea){display:none!important}",
-        "body.print-receipt #printArea{display:block!important}",
-        "#printArea,#printArea *{color:#000!important;-webkit-text-fill-color:#000!important;background:transparent!important;box-shadow:none!important;border-color:#cbd5e1!important}",
-        "#printArea .print-container{border:1px solid #cbd5e1!important;border-radius:8px;padding:12pt!important}",
+        // Lề 0 để trình duyệt không in thêm dòng ngày giờ, tiêu đề, URL; lề thật đặt bằng padding
+        "@page{size:A4;margin:0}",
+        "html.print-receipt>:not(head):not(body),body.print-receipt>*:not(#printArea){display:none!important}",
+        "body.print-receipt{background:#fff!important;margin:0!important;min-height:0!important}",
+        "body.print-receipt #printArea{display:block!important;padding:12mm 14mm}",
+        "#printArea,#printArea *{color:#000!important;-webkit-text-fill-color:#000!important;background:transparent!important;box-shadow:none!important;border-color:#cbd5e1!important;filter:none!important;backdrop-filter:none!important}",
+        // Lớp trang trí ::before/::after (viền gradient có mask) bị in thành khối đặc che mất số tiền
+        "#printArea *::before,#printArea *::after{display:none!important}",
+        "#printArea .print-container{zoom:.82;border:1px solid #cbd5e1!important;border-radius:8px;padding:10pt!important;margin:0!important}",
+        "#printArea .result-glow{padding:8pt 0!important;margin:6pt 0!important}",
         "#printArea .hidden{display:none!important}",
         "}",
     ].join("");
@@ -143,7 +149,26 @@
     styleEl.textContent = PRINT_CSS;
     document.head.appendChild(styleEl);
 
+    let hiddenForPrint = [];
+
+    function hideOthersForPrint() {
+        const nodes = [...document.documentElement.children, ...document.body.children];
+        hiddenForPrint = nodes
+            .filter((el) => el !== document.head && el !== document.body && el.id !== "printArea" && !/^(SCRIPT|STYLE|LINK)$/.test(el.tagName))
+            .map((el) => {
+                const prev = [el.style.getPropertyValue("display"), el.style.getPropertyPriority("display")];
+                el.style.setProperty("display", "none", "important");
+                return [el, prev];
+            });
+    }
+
     function removeReceipt() {
+        hiddenForPrint.forEach(([el, prev]) => {
+            if (prev[0]) el.style.setProperty("display", prev[0], prev[1]);
+            else el.style.removeProperty("display");
+        });
+        hiddenForPrint = [];
+        document.documentElement.classList.remove("print-receipt");
         document.body.classList.remove("print-receipt");
         const area = document.getElementById("printArea");
         if (area) area.remove();
@@ -192,7 +217,9 @@
         area.appendChild(foot);
 
         document.body.appendChild(area);
+        document.documentElement.classList.add("print-receipt");
         document.body.classList.add("print-receipt");
+        hideOthersForPrint();
         return true;
     }
 
