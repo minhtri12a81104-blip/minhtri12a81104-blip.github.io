@@ -5,7 +5,8 @@ Web application for calculating real estate transfer taxes, registration fees, a
 
 - Live Domain: https://tinhnhadat.com
 - GitHub Repo: https://github.com/minhtri12a81104-blip/minhtri12a81104-blip.github.io.git (Branch: main)
-- Host: GitHub Pages with custom domain and Fastly CDN.
+- Host: GitHub Pages & Vercel with custom domain and Fastly/Vercel Edge CDN.
+- Config: `vercel.json` for Vercel deployment and caching.
 
 ## Tech Stack
 - Frontend: Vanilla HTML5, Tailwind CSS (CDN), Custom CSS (`assets/css/style.css`), Plain JavaScript (ES6+).
