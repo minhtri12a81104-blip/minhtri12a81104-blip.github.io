@@ -15,7 +15,7 @@
    - Sơ đồ trang web `sitemap.xml` và `robots.txt` đã cấu hình sẵn sàng gửi Googlebot.
 3. **Chuẩn kiểm duyệt Google AdSense (Chống lỗi Low Value Content):**
    - Đầy đủ 4 trang pháp lý bắt buộc: *Chính sách bảo mật (Privacy Policy), Điều khoản dịch vụ (Terms), Giới thiệu (About Us), Liên hệ (Contact Us)*.
-   - File xác thực nhà xuất bản `ads.txt`.
+   - (Đã gỡ `ads.txt` mẫu AdSense vì dự án không dùng AdSense).
    - Thiết kế sẵn 4 vị trí đặt banner quảng cáo AdSense có tỷ lệ click (CTR) cao nhất mà không vi phạm chính sách bố cục của Google.
    - Nút bật/tắt **"Xem khung hiển thị Quảng cáo AdSense"** để kiểm tra giao diện trước và sau khi gắn quảng cáo.
 

@@ -4,7 +4,7 @@ cd /d "%~dp0"
 echo ====================================================
 echo DANG DAY CODE LEN GITHUB REPOSITORY...
 echo ====================================================
-"C:\Users\MINHTRI\AppData\Local\Programs\Git\cmd\git.exe" push origin main
+git push origin main
 echo.
 if %ERRORLEVEL% equ 0 (
     echo ====================================================

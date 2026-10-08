@@ -356,8 +356,8 @@
                                 pattern="[0-9,.]*"
                                 id="giaTriInput" 
                                 class="w-full pl-4 pr-16 py-3.5 rounded-xl border border-slate-300 text-slate-900 font-bold text-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all input-premium"
-                                placeholder="Ví dụ: 2,000,000,000"
-                                value="2,000,000,000"
+                                placeholder="Ví dụ: 2.000.000.000"
+                                value="2.000.000.000"
                                 autocomplete="off"
                             >
                             <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-400 font-bold text-sm">
@@ -462,7 +462,7 @@
                     <div class="result-glow my-5 p-6 rounded-3xl text-white shadow-xl">
                         <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide">Tổng toàn bộ thuế & lệ phí giao dịch:</div>
                         <div class="flex items-baseline gap-2 mt-1.5">
-                            <span id="resTongChiPhi" class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-emerald-400">51,800,000</span>
+                            <span id="resTongChiPhi" class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-emerald-400">51.800.000</span>
                             <span class="text-xl font-extrabold text-slate-300">VNĐ</span>
                         </div>
                         <div id="resTongChiPhiChu" class="text-xs text-slate-300 mt-2.5 font-medium italic border-t border-slate-700/60 pt-2.5">
@@ -474,12 +474,12 @@
                     <div class="grid grid-cols-2 gap-3 mb-6">
                         <div class="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200/70">
                             <div class="text-[11px] font-bold text-amber-800 uppercase tracking-wide">Bên Bán Nộp (Theo Luật)</div>
-                            <div class="text-lg font-extrabold text-amber-900 mt-0.5" id="resBenBanNop">40,000,000 đ</div>
+                            <div class="text-lg font-extrabold text-amber-900 mt-0.5" id="resBenBanNop">40.000.000 đ</div>
                             <div class="text-[10px] text-amber-700 mt-0.5">Thuế Thu nhập cá nhân (2%)</div>
                         </div>
                         <div class="p-3.5 rounded-xl bg-sky-50/80 border border-sky-200/70">
                             <div class="text-[11px] font-bold text-sky-800 uppercase tracking-wide">Bên Mua Nộp (Theo Luật)</div>
-                            <div class="text-lg font-extrabold text-sky-900 mt-0.5" id="resBenMuaNop">10,250,000 đ</div>
+                            <div class="text-lg font-extrabold text-sky-900 mt-0.5" id="resBenMuaNop">10.250.000 đ</div>
                             <div class="text-[10px] text-sky-700 mt-0.5">Lệ phí trước bạ (0.5%) + Đăng bộ</div>
                         </div>
                     </div>
@@ -500,7 +500,7 @@
                                     </div>
                                     <div class="text-[11px] text-slate-500">Căn cứ: 2% giá trị chuyển nhượng (Bên bán chịu)</div>
                                 </div>
-                                <div class="font-bold text-slate-900 text-right" id="resThueTNCN">40,000,000 đ</div>
+                                <div class="font-bold text-slate-900 text-right" id="resThueTNCN">40.000.000 đ</div>
                             </div>
 
                             <!-- 2. Lệ phí trước bạ -->
@@ -509,25 +509,25 @@
                                     <div class="font-bold text-slate-900">2. Lệ phí trước bạ (0.5%)</div>
                                     <div class="text-[11px] text-slate-500">Căn cứ: NĐ 10/2022/NĐ-CP (Bên mua chịu)</div>
                                 </div>
-                                <div class="font-bold text-slate-900 text-right" id="resTruocBa">10,000,000 đ</div>
+                                <div class="font-bold text-slate-900 text-right" id="resTruocBa">10.000.000 đ</div>
                             </div>
 
                             <!-- 3. Phí công chứng -->
                             <div class="px-4 py-3 flex items-center justify-between hover:bg-slate-50">
                                 <div>
                                     <div class="font-bold text-slate-900">3. Phí công chứng hợp đồng</div>
-                                    <div class="text-[11px] text-slate-500" id="resGiaiThichCongChung">Theo TT 257/2016/TT-BTC (Thường chia đôi)</div>
+                                    <div class="text-[11px] text-slate-500" id="resGiaiThichCongChung">Theo TT 257/2016/TT-BTC + thù lao soạn thảo ~300.000đ (ước tính)</div>
                                 </div>
-                                <div class="font-bold text-slate-900 text-right" id="resPhiCongChung">1,900,000 đ</div>
+                                <div class="font-bold text-slate-900 text-right" id="resPhiCongChung">1.900.000 đ</div>
                             </div>
 
                             <!-- 4. Lệ phí thẩm định hồ sơ -->
                             <div class="px-4 py-3 flex items-center justify-between hover:bg-slate-50">
                                 <div>
-                                    <div class="font-bold text-slate-900">4. Lệ phí thẩm định hồ sơ cấp sổ</div>
+                                    <div class="font-bold text-slate-900">4. Lệ phí thẩm định hồ sơ cấp sổ (ước tính)</div>
                                     <div class="text-[11px] text-slate-500">Theo biểu mức HĐND địa phương</div>
                                 </div>
-                                <div class="font-bold text-slate-900 text-right" id="resPhiThamDinh">1,000,000 đ</div>
+                                <div class="font-bold text-slate-900 text-right" id="resPhiThamDinh">1.000.000 đ</div>
                             </div>
 
                             <!-- 5. Lệ phí cấp phôi sổ & biến động -->
@@ -536,7 +536,7 @@
                                     <div class="font-bold text-slate-900">5. Lệ phí cấp mới/chứng nhận biến động</div>
                                     <div class="text-[11px] text-slate-500" id="resGiaiThichCapSo">Cấp giấy chứng nhận phôi mới</div>
                                 </div>
-                                <div class="font-bold text-slate-900 text-right" id="resPhiCapSo">100,000 đ</div>
+                                <div class="font-bold text-slate-900 text-right" id="resPhiCapSo">100.000 đ</div>
                             </div>
 
                             <!-- 6. Phí trích lục địa chính -->
@@ -545,7 +545,7 @@
                                     <div class="font-bold text-slate-900">6. Phí trích lục thửa đất (ước tính)</div>
                                     <div class="text-[11px] text-slate-500">Chi nhánh VP Đăng ký đất đai</div>
                                 </div>
-                                <div class="font-bold text-slate-900 text-right" id="resPhiTrichLuc">150,000 đ</div>
+                                <div class="font-bold text-slate-900 text-right" id="resPhiTrichLuc">150.000 đ</div>
                             </div>
                         </div>
                     </div>
@@ -727,7 +727,7 @@
                         <!-- Khung kết quả trả góp -->
                         <div class="mt-4 p-3.5 rounded-2xl bg-white/5 border border-white/10">
                             <div class="text-[11px] text-slate-400">Trả gốc + lãi tháng đầu (vay 20 năm, lãi 6.5%):</div>
-                            <div class="text-2xl font-black text-emerald-400 mt-1" id="loanMonthlyPayment">9,583,000 đ</div>
+                            <div class="text-2xl font-black text-emerald-400 mt-1" id="loanMonthlyPayment">9.583.000 đ</div>
                             <div class="text-[10px] text-slate-400 mt-1">Giảm dần theo dư nợ thực tế các tháng sau</div>
                         </div>
                     </div>
@@ -1218,7 +1218,7 @@
         giaTriInput.addEventListener('input', function(e) {
             let val = window.NhaDatCalc.parseCurrency(this.value);
             this.value = window.NhaDatCalc.formatCurrency(val);
-            chuDocTien.innerText = window.NhaDatCalc.docSoThanhChu(val);
+            chuDocTien.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span><span>${window.NhaDatCalc.docSoThanhChu(val)}</span>`;
             tinhToanNgay();
         });
 
@@ -1291,7 +1291,7 @@
 
         // Reset form
         function resetForm() {
-            giaTriInput.value = '2,000,000,000';
+            giaTriInput.value = '2.000.000.000';
             chuDocTien.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span><span>Hai tỷ đồng</span>`;
             checkMienTNCN.checked = false;
             checkDichVuCongChung.checked = true;
@@ -1395,7 +1395,7 @@
         <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
             <div>
                 <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Tổng chi phí dự toán:</div>
-                <div id="stickyTotalMobile" class="text-base font-black text-emerald-400 leading-tight">55,200,000 đ</div>
+                <div id="stickyTotalMobile" class="text-base font-black text-emerald-400 leading-tight">55.200.000 đ</div>
             </div>
             <div class="flex items-center gap-2">
                 <a href="#ket-qua" class="py-2 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-extrabold text-xs flex items-center gap-1 shadow-md transition-all active:scale-95">

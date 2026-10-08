@@ -28,14 +28,16 @@ function docSoThanhChu(so) {
     const chuSo = ['không', 'một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín'];
     const tienDonVi = ['', 'nghìn', 'triệu', 'tỷ', 'nghìn tỷ', 'triệu tỷ'];
 
-    function docBlock3(b) {
+    // docDayDu = true với các khối không đứng đầu (phải đọc "không trăm", "lẻ")
+    function docBlock3(b, docDayDu) {
         let tram = Math.floor(b / 100);
         let chuc = Math.floor((b % 100) / 10);
         let donVi = b % 10;
         let ketQua = '';
 
-        if (tram > 0) {
+        if (tram > 0 || docDayDu) {
             ketQua += chuSo[tram] + ' trăm ';
+            tram = Math.max(tram, 1); // để nhánh "lẻ" bên dưới được áp dụng
         }
         if (chuc > 1) {
             ketQua += chuSo[chuc] + ' mươi ';
@@ -66,7 +68,7 @@ function docSoThanhChu(so) {
         let b = blocks[i];
         let unitIdx = blocks.length - 1 - i;
         if (b > 0) {
-            let bText = docBlock3(b);
+            let bText = docBlock3(b, i > 0);
             strWords.push(bText + (tienDonVi[unitIdx] ? ' ' + tienDonVi[unitIdx] : ''));
         }
     }
@@ -93,9 +95,12 @@ function tinhPhiCongChung(giaTri) {
         return Math.round(2200000 + (giaTri - 3000000000) * 0.0005);
     } else if (giaTri <= 10000000000) {
         return Math.round(3200000 + (giaTri - 5000000000) * 0.0004);
+    } else if (giaTri <= 100000000000) {
+        // Trên 10 tỷ đến 100 tỷ: 5,2 triệu + 0,03% của phần vượt quá 10 tỷ
+        return Math.round(5200000 + (giaTri - 10000000000) * 0.0003);
     } else {
-        // Trên 10 tỷ: 5,2 triệu + 0,03% của phần vượt quá 10 tỷ (Tối đa 70 triệu)
-        let phi = 5200000 + (giaTri - 10000000000) * 0.0003;
+        // Trên 100 tỷ: 32,2 triệu + 0,02% của phần vượt quá 100 tỷ (Tối đa 70 triệu)
+        let phi = 32200000 + (giaTri - 100000000000) * 0.0002;
         return Math.min(70000000, Math.round(phi));
     }
 }
