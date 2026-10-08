@@ -5,7 +5,8 @@ Web application for calculating real estate transfer taxes, registration fees, a
 
 - Live Domain: https://tinhnhadat.com
 - GitHub Repo: https://github.com/minhtri12a81104-blip/minhtri12a81104-blip.github.io.git (Branch: main)
-- Host: GitHub Pages & Vercel with custom domain and Fastly/Vercel Edge CDN.
+- Host: Vercel (auto-deploy on push to `main`; config in `vercel.json`). DNS at Spaceship: `@` A `216.198.79.1`, `www` CNAME → Vercel, www redirects to apex. Canonical host is `https://tinhnhadat.com` (no www). GitHub Pages no longer used.
+- Contact emails `@tinhnhadat.com` have no MX record (cannot receive mail); contact form was removed.
 - Config: `vercel.json` for Vercel deployment and caching.
 
 ## Tech Stack
