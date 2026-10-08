@@ -22,6 +22,7 @@ Web application for calculating real estate transfer taxes, registration fees, a
 - `assets/js/calculator.js`: Tax & fee calculations, currency parsing/formatting, number-to-words converter in Vietnamese.
 - `assets/css/style.css`: Modern FinTech styling, custom scrollbars, print stylesheet, and Mobile UX touch optimization.
 - Static Pages: `gioi-thieu.html`, `lien-he.html`, `chinh-sach-bao-mat.html`, `dieu-khoan-su-dung.html`.
+- SEO guide pages (each targets one keyword cluster, has a mini calculator, Article/FAQ/Breadcrumb JSON-LD, and links to the others): `le-phi-truoc-ba-nha-dat.html`, `phi-cong-chung-mua-ban-nha-dat.html`, `thue-tncn-ban-nha-dat.html`, `thu-tuc-sang-ten-so-do.html`, `sang-ten-so-do-cho-con.html`. Linked from the "Hướng dẫn chi tiết" block and footer of `index.html` / `tang-cho-thua-ke.html`, and listed in `sitemap.xml`. When adding a page, also add it to sitemap and these link lists.
 
 ## Monetization Rules (Strict Constraints)
 - **DO NOT** add Google AdSense (User explicitly declined AdSense).
