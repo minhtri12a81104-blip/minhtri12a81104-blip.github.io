@@ -2,7 +2,8 @@
  * BỘ CÔNG CỤ TÍNH THUẾ & PHÍ SANG TÊN NHÀ ĐẤT BẤT ĐỘNG SẢN
  * Căn cứ pháp lý:
  * - Luật Đất đai mới nhất
- * - Luật Thuế thu nhập cá nhân & Thông tư 92/2015/TT-BTC (Thuế TNCN 2%)
+ * - Luật Thuế thu nhập cá nhân số 109/2025/QH15 (hiệu lực 01/7/2026) & Nghị định 253/2026/NĐ-CP
+ *   (Thuế TNCN chuyển nhượng 2%; thừa kế, quà tặng 10% phần vượt 20 triệu)
  * - Nghị định 10/2022/NĐ-CP & Thông tư 13/2022/TT-BTC (Lệ phí trước bạ 0.5%)
  * - Thông tư 257/2016/TT-BTC & Thông tư 111/2017/TT-BTC (Phí công chứng hợp đồng)
  */
@@ -195,8 +196,8 @@ function tinhChiPhiTangCho(params) {
         isDuocMien = true;
     } else {
         // Quan hệ khác / người ngoài:
-        // Thuế TNCN 10% trên phần giá trị vượt quá 10 triệu đồng
-        const phanVuot = Math.max(0, giaTri - 10000000);
+        // Thuế TNCN 10% trên phần giá trị vượt quá 20 triệu đồng (Luật Thuế TNCN 2025, từ 01/7/2026)
+        const phanVuot = Math.max(0, giaTri - 20000000);
         thueTNCN = Math.round(phanVuot * 0.1);
         // Lệ phí trước bạ 0.5%
         lePhiTruocBa = Math.round(giaTri * 0.005);

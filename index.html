@@ -15,8 +15,6 @@
     <link rel="canonical" href="https://tinhnhadat.com/">
 
     <!-- Performance & Preconnect -->
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -171,24 +169,10 @@
     </script>
 
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0284c7',
-                            600: '#0369a1',
-                            700: '#075985',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="assets/css/tailwind.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -199,7 +183,7 @@
     <div class="no-print bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
         <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
             <div class="flex items-center gap-2">
-                <span>Cập nhật bảng tính mới nhất theo <strong>Luật Đất đai mới &amp; Nghị định 10/2022/NĐ-CP</strong></span>
+                <span>Cập nhật tháng 10/2026 theo <strong>Luật Thuế TNCN 2025 (hiệu lực 01/7/2026)</strong>, Nghị định 10/2022/NĐ-CP và Thông tư 257/2016/TT-BTC</span>
             </div>
         </div>
     </div>
@@ -387,7 +371,7 @@
                         <label class="flex items-start gap-2.5 cursor-pointer">
                             <input type="checkbox" id="checkMienTNCN" class="mt-0.5 rounded text-sky-600 focus:ring-sky-500 w-4 h-4">
                             <div class="text-xs text-slate-700">
-                                <span class="font-bold text-slate-900">Bên bán có duy nhất 1 nhà/đất</span> (Được MIỄN 100% Thuế TNCN 2% theo quy định tại Khoản 2 Điều 4 Luật Thuế TNCN).
+                                <span class="font-bold text-slate-900">Bên bán có duy nhất 1 nhà/đất</span> (Được MIỄN 100% Thuế TNCN 2% theo Luật Thuế TNCN số 109/2025/QH15).
                             </div>
                         </label>
 
@@ -728,7 +712,7 @@
                                 <td class="p-3.5 sm:p-4 font-bold text-slate-900">1. Thuế thu nhập cá nhân (TNCN)</td>
                                 <td class="p-3.5 sm:p-4 font-semibold text-rose-600">2% giá trị chuyển nhượng</td>
                                 <td class="p-3.5 sm:p-4"><span class="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-50 text-rose-700 border border-rose-200">Bên Bán</span></td>
-                                <td class="p-3.5 sm:p-4 text-slate-500">Luật Thuế TNCN & TT 92/2015/TT-BTC</td>
+                                <td class="p-3.5 sm:p-4 text-slate-500">Luật Thuế TNCN số 109/2025/QH15</td>
                             </tr>
                             <tr class="hover:bg-slate-50 transition-colors">
                                 <td class="p-3.5 sm:p-4 font-bold text-slate-900">2. Lệ phí trước bạ</td>
@@ -765,7 +749,7 @@
                             <span class="w-6 h-6 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-xs">A</span>
                             <h3 class="font-bold text-slate-900 text-base">Thuế Thu Nhập Cá Nhân (2%)</h3>
                         </div>
-                        <p class="text-xs text-slate-500 mb-2"><strong>Căn cứ:</strong> Luật Thuế TNCN & Thông tư 92/2015/TT-BTC</p>
+                        <p class="text-xs text-slate-500 mb-2"><strong>Căn cứ:</strong> Luật Thuế TNCN số 109/2025/QH15 (hiệu lực 01/7/2026) & Nghị định 253/2026/NĐ-CP</p>
                         <p class="text-xs text-slate-600 leading-relaxed">
                             Mức thuế suất là <strong>2% trên giá trị chuyển nhượng</strong> được ghi trong hợp đồng mua bán công chứng (hoặc theo Bảng giá đất do UBND tỉnh ban hành nếu giá trên hợp đồng thấp hơn). Người bán có nghĩa vụ nộp khoản thuế này từ khoản thu nhập phát sinh từ chuyển nhượng bất động sản.
                         </p>
@@ -1033,7 +1017,7 @@
                         </button>
                         <div id="faqContent-3" class="accordion-content">
                             <div class="p-4 text-xs sm:text-sm text-slate-600 border-t border-slate-100 bg-white leading-relaxed">
-                                Căn cứ Khoản 2 Điều 4 Luật Thuế TNCN, người bán được miễn thuế khi đáp ứng đủ 3 điều kiện đồng thời:
+                                Căn cứ Luật Thuế TNCN số 109/2025/QH15 và Nghị định 253/2026/NĐ-CP, người bán được miễn thuế khi đáp ứng đủ 3 điều kiện đồng thời:
                                 <ul class="list-disc pl-5 mt-1 space-y-1">
                                     <li>Chỉ có duy nhất quyền sở hữu 1 nhà ở hoặc quyền sử dụng 1 thửa đất trên phạm vi toàn quốc.</li>
                                     <li>Có thời gian sở hữu nhà ở, đất ở tối thiểu từ 183 ngày trở lên tính đến thời điểm chuyển nhượng.</li>
