@@ -221,7 +221,7 @@
 
             <!-- Quick Action button -->
             <div class="flex items-center gap-2">
-                <button onclick="window.print()" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 shadow-sm transition-all hover:shadow">
+                <button onclick="NhaDatShare.printReceipt()" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 shadow-sm transition-all hover:shadow">
                     <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                     <span>In Phiếu Tính</span>
                 </button>
@@ -506,7 +506,7 @@
                             <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
                             Sao chép kết quả gửi Zalo
                         </button>
-                        <button onclick="window.print()" class="py-2.5 px-3 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 flex items-center justify-center gap-1.5 transition-colors shadow-sm">
+                        <button onclick="NhaDatShare.printReceipt()" class="py-2.5 px-3 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 flex items-center justify-center gap-1.5 transition-colors shadow-sm">
                             <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                             In Phiếu
                         </button>
@@ -1162,6 +1162,7 @@
 
     <!-- Scripts -->
     <script src="assets/js/calculator.js"></script>
+    <script src="assets/js/share.js"></script>
     <script>
         // DOM Elements
         const giaTriInput = document.getElementById('giaTriInput');
@@ -1306,47 +1307,7 @@
                          `Tổng chi phí dự kiến: ${tong} đ (${chu})\n\n` +
                          `Chi tiết: https://tinhnhadat.com`;
 
-            if (navigator.share && /mobile|android|iphone|ipad/i.test(navigator.userAgent)) {
-                navigator.share({
-                    title: 'Dự toán thuế & phí sang tên nhà đất - tinhnhadat.com',
-                    text: text,
-                    url: 'https://tinhnhadat.com'
-                }).catch(() => {
-                    copyToClipboard(text);
-                });
-            } else {
-                copyToClipboard(text);
-            }
-        }
-
-        function copyToClipboard(text) {
-            const showToast = () => {
-                const toast = document.getElementById('copyToast');
-                if (toast) {
-                    toast.classList.remove('hidden');
-                    setTimeout(() => toast.classList.add('hidden'), 3000);
-                }
-            };
-            // Dự phòng cho trình duyệt cũ / webview (Zalo, Facebook) không hỗ trợ Clipboard API
-            const fallbackCopy = () => {
-                const ta = document.createElement('textarea');
-                ta.value = text;
-                ta.setAttribute('readonly', '');
-                ta.style.position = 'fixed';
-                ta.style.opacity = '0';
-                document.body.appendChild(ta);
-                ta.select();
-                let ok = false;
-                try { ok = document.execCommand('copy'); } catch (e) {}
-                document.body.removeChild(ta);
-                if (ok) showToast();
-                else window.prompt('Sao chép nội dung dưới đây:', text);
-            };
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(showToast).catch(fallbackCopy);
-            } else {
-                fallbackCopy();
-            }
+            NhaDatShare.share({ title: "Dự toán thuế & phí sang tên nhà đất - tinhnhadat.com", text: text });
         }
 
         // Run calculation on initial load

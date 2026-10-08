@@ -10,7 +10,7 @@ Web application for calculating real estate transfer taxes, registration fees, a
 - Config: `vercel.json` for Vercel deployment and caching.
 
 ## Tech Stack
-- Frontend: Vanilla HTML5, Tailwind CSS v3 (prebuilt static file `assets/css/tailwind.css`, NOT the CDN), Custom CSS (`assets/css/style.css`), Plain JavaScript (ES6+).
+- Frontend: Vanilla HTML5, Tailwind CSS v3 (prebuilt static file `assets/css/tailwind.css`, NOT the CDN), Custom CSS (`assets/css/style.css`, loaded BEFORE tailwind.css to match old CDN cascade), Plain JavaScript (ES6+).
 - Calculation Engine: `assets/js/calculator.js` exposing `window.NhaDatCalc`.
 - Assets: SVG vectors (`assets/images/logo.svg`, `favicon.svg`).
 - No build step for deploy (static files). After adding NEW Tailwind classes to HTML/JS, regenerate CSS and commit it: `npx tailwindcss@3 -i assets/css/tailwind.src.css -o assets/css/tailwind.css --minify` (config: `tailwind.config.js`).
@@ -39,5 +39,5 @@ Web application for calculating real estate transfer taxes, registration fees, a
 - `inputmode="numeric"` and `pattern="[0-9,.]*"` for instant mobile number keypad.
 - Mobile sticky bottom result bar (`#mobileStickyBar` with `#stickyTotalMobile`).
 - Mobile hamburger navigation drawer (`#mobileNavMenu` toggled by `toggleMobileNav()`).
-- Native mobile sharing via `navigator.share` (fallback to clipboard toast).
+- Share / copy / print live in `assets/js/share.js` (`NhaDatShare.share`, `.printReceipt`): mobile uses `navigator.share`; clipboard falls back to execCommand then a manual-copy modal (Zalo/Facebook webviews). `printReceipt` prints only `#resultCard` in black-on-white via `body.print-receipt` + `#printArea` (CSS in style.css); in-app browsers get a "open in Chrome/Safari" notice.
 - Font-size >= 16px on inputs to prevent iOS Safari auto-zoom.
